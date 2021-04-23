@@ -10,10 +10,9 @@ public class ActivityBase extends Application {
     public void onCreate() {
         super.onCreate();
 
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
+        OneSignal.initWithContext(this);
+        OneSignal.setAppId(ActivityConfig.ONESIGNAL_APP_ID);
+        OneSignal.unsubscribeWhenNotificationsAreDisabled(true);
     }
 
 }
